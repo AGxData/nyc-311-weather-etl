@@ -14,11 +14,11 @@ from etl.loading.load_to_bigquery import load_to_bigquery
 from logger.etl_logger import ETLLogger
 
 
-# Add ETL modules to path
+# Adding ETL modules to path
 project_root = Path(__file__).parent.parent
 sys.path.append(str(project_root))
 
-# Set up logging
+# Setting up logging
 logger = ETLLogger("airflow_dag").get()
 logger.info("Starting Airflow DAG script")
 
@@ -31,7 +31,7 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
 }
 
-# Define DAG
+# Defining the Airflow DAG
 with DAG(
     'nyc_311_weather_etl_monthly',
     default_args=default_args,
